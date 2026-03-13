@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Punto Contable — Asesoría Fiscal y Financiera</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230d1b35'/%3E%3Ccircle cx='32' cy='32' r='30' fill='none' stroke='%23c9a84c' stroke-width='1.5'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia%2C serif' font-size='28' font-style='italic' font-weight='bold' fill='%23c9a84c'%3EPC%3C/text%3E%3C/svg%3E"/>
-  <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230d1b35'/%3E%3Ccircle cx='32' cy='32' r='30' fill='none' stroke='%23c9a84c' stroke-width='1.5'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia%2C serif' font-size='28' font-style='italic' font-weight='bold' fill='%23c9a84c'%3EPC%3C/text%3E%3C/svg%3E"/>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f0d878'/%3E%3Cstop offset='50%25' stop-color='%23c9a84c'/%3E%3Cstop offset='100%25' stop-color='%23a07830'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='32' fill='%230d1b35'/%3E%3Ccircle cx='32' cy='32' r='29.5' fill='none' stroke='url(%23g)' stroke-width='1.8'/%3E%3Ctext x='31' y='42' text-anchor='middle' font-family='Palatino Linotype%2C Palatino%2C Georgia%2C serif' font-size='26' font-style='italic' font-weight='bold' fill='url(%23g)'%3EPC%3C/text%3E%3C/svg%3E"/>
   <meta name="theme-color" content="#0d1b35"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
@@ -66,15 +65,7 @@
 
     .nav-monogram {
       width: 48px; height: 48px;
-      border: 1.5px solid var(--gold);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      color: var(--gold);
-      font-style: italic;
+      flex-shrink: 0;
     }
 
     .nav-brand {
@@ -754,6 +745,261 @@
       text-decoration: none;
     }
     .whatsapp-float:hover { transform: scale(1.1); }
+    /* ─── CALCULADORAS INLINE ─── */
+    .calc-tabs {
+      display: flex;
+      gap: 0;
+      margin-top: 3.5rem;
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .calc-tabs::-webkit-scrollbar { display: none; }
+
+    .calc-tab {
+      background: none;
+      border: none;
+      padding: 1rem 1.8rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: all 0.25s;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .calc-tab:hover { color: var(--gold-light); }
+    .calc-tab.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+
+    .calc-panel {
+      display: none;
+      margin-top: 2.5rem;
+      animation: fadeUp 0.35s ease both;
+    }
+    .calc-panel.active { display: grid; }
+
+    /* Two-column layout: inputs left, result right */
+    .calc-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .calc-inputs-box {
+      background: var(--navy-mid);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 8px;
+      padding: 2rem;
+    }
+
+    .calc-inputs-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .calc-inputs-sub {
+      font-size: 0.7rem;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1.8rem;
+    }
+
+    .field-group {
+      margin-bottom: 1.1rem;
+    }
+
+    .field-group label {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.45rem;
+    }
+
+    .field-group input,
+    .field-group select {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 4px;
+      padding: 0.7rem 1rem;
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+    }
+
+    .field-group input:focus,
+    .field-group select:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.08);
+    }
+
+    .field-group select option { background: #112244; }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .btn-calc {
+      width: 100%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--navy);
+      border: none;
+      border-radius: 4px;
+      padding: 0.9rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 1.4rem;
+      transition: all 0.25s;
+      box-shadow: 0 6px 20px rgba(201,168,76,0.22);
+    }
+
+    .btn-calc:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(201,168,76,0.38);
+    }
+
+    /* Result panel */
+    .calc-result-box {
+      background: var(--navy-mid);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 8px;
+      padding: 2rem;
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .result-placeholder {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: var(--text-muted);
+    }
+
+    .result-placeholder-icon {
+      font-size: 3rem;
+      opacity: 0.3;
+    }
+
+    .result-placeholder-text {
+      font-size: 0.8rem;
+      font-weight: 300;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    .result-content { display: none; flex-direction: column; gap: 0; width: 100%; }
+    .result-content.show { display: flex; }
+
+    .result-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid rgba(201,168,76,0.08);
+      font-size: 0.82rem;
+    }
+
+    .result-row:last-of-type { border-bottom: none; }
+    .result-row span:first-child { color: var(--text-muted); }
+    .result-row span:last-child { font-weight: 600; }
+    .result-row.positive span:last-child { color: #6ee7a0; }
+    .result-row.negative span:last-child { color: #f87171; }
+
+    .result-total {
+      margin-top: 1.2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(201,168,76,0.25);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .result-total-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .result-total-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      color: var(--gold-light);
+    }
+
+    .result-note {
+      margin-top: 1rem;
+      font-size: 0.67rem;
+      color: rgba(139,164,200,0.6);
+      font-style: italic;
+      line-height: 1.65;
+      border-top: 1px solid rgba(201,168,76,0.08);
+      padding-top: 0.8rem;
+    }
+
+    .result-cta {
+      margin-top: 1.2rem;
+      padding: 0.75rem 1.2rem;
+      background: rgba(201,168,76,0.07);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 4px;
+      font-size: 0.73rem;
+      text-align: center;
+      color: var(--gold-light);
+    }
+
+    .result-cta a { color: var(--gold); font-weight: 600; text-decoration: none; }
+
+    @media (max-width: 900px) {
+      .calc-layout { grid-template-columns: 1fr; }
+      .calc-tab { padding: 0.85rem 1.1rem; font-size: 0.68rem; }
+    }
+
+    @media (max-width: 600px) {
+      .field-row { grid-template-columns: 1fr; }
+    }
+
+  </style>
   </style>
 </head>
 <body>
@@ -761,7 +1007,21 @@
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">
-      <div class="nav-monogram">PC</div>
+      <div class="nav-monogram">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+          <defs>
+            <linearGradient id="g48" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#e8c97a"/>
+              <stop offset="100%" stop-color="#c9a84c"/>
+            </linearGradient>
+          </defs>
+          <circle cx="24" cy="24" r="22.5" fill="none" stroke="url(#g48)" stroke-width="1.2"/>
+          <circle cx="24" cy="24" r="19" fill="none" stroke="url(#g48)" stroke-width="0.5" stroke-dasharray="1.5 2.5" opacity="0.55"/>
+          <text x="24" y="31" text-anchor="middle"
+            font-family="Palatino Linotype, Palatino, Book Antiqua, Georgia, serif"
+            font-size="20" font-style="italic" fill="url(#g48)">PC</text>
+        </svg>
+      </div>
       <div class="nav-brand">
         Punto Contable
         <span>Asesoría Fiscal y Financiera</span>
@@ -801,20 +1061,30 @@
     </div>
 
     <div class="hero-emblem">
-      <div class="emblem-ring">
-        <div class="emblem-letter">PC</div>
-      </div>
+      <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" width="300" height="300">
+          <defs>
+            <linearGradient id="g300" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#e8c97a"/>
+              <stop offset="100%" stop-color="#c9a84c"/>
+            </linearGradient>
+          </defs>
+          <circle cx="150" cy="150" r="143" fill="none" stroke="url(#g300)" stroke-width="1.2"/>
+          <circle cx="150" cy="150" r="130" fill="none" stroke="url(#g300)" stroke-width="0.5" stroke-dasharray="1.5 2.5" opacity="0.55"/>
+          <text x="150" y="193" text-anchor="middle"
+            font-family="Palatino Linotype, Palatino, Book Antiqua, Georgia, serif"
+            font-size="120" font-style="italic" fill="url(#g300)">PC</text>
+        </svg>
     </div>
   </section>
 
   <!-- STATS -->
   <div class="stats-band reveal">
     <div class="stat-item">
-      <div class="stat-number">+10</div>
+      <div class="stat-number">+500</div>
       <div class="stat-label">Clientes satisfechos</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">1+</div>
+      <div class="stat-number">10+</div>
       <div class="stat-label">Años de experiencia</div>
     </div>
     <div class="stat-item">
@@ -912,7 +1182,21 @@
 
       <div class="why-visual reveal">
         <div class="why-card-main">
-          <div class="why-card-monogram">PC</div>
+          <div class="why-card-monogram">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="100" height="100">
+          <defs>
+            <linearGradient id="g100" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#e8c97a"/>
+              <stop offset="100%" stop-color="#c9a84c"/>
+            </linearGradient>
+          </defs>
+          <circle cx="50" cy="50" r="47" fill="none" stroke="url(#g100)" stroke-width="1.2"/>
+          <circle cx="50" cy="50" r="41" fill="none" stroke="url(#g100)" stroke-width="0.5" stroke-dasharray="1.5 2.5" opacity="0.55"/>
+          <text x="50" y="65" text-anchor="middle"
+            font-family="Palatino Linotype, Palatino, Book Antiqua, Georgia, serif"
+            font-size="42" font-style="italic" fill="url(#g100)">PC</text>
+        </svg>
+          </div>
           <div class="why-card-name">Punto Contable</div>
           <div class="why-card-sub">Asesoría Fiscal y Financiera</div>
           <div class="why-card-services">
@@ -938,6 +1222,214 @@
     </div>
   </section>
 
+  <!-- CALCULADORAS -->
+  <section class="section" id="calculadoras" style="background: rgba(10,20,42,0.6);">
+    <div class="section-label">Herramientas gratuitas</div>
+    <h2 class="section-title reveal">Calculadoras fiscales<br/>y laborales</h2>
+    <p class="section-desc reveal">Obtén estimados rápidos sin salir de la página. Para asesoría personalizada, contáctanos.</p>
+
+    <!-- TABS -->
+    <div class="calc-tabs reveal">
+      <button class="calc-tab active" onclick="showTab('finiquito', this)">📄 Finiquito</button>
+      <button class="calc-tab" onclick="showTab('liquidacion', this)">⚖️ Liquidación</button>
+      <button class="calc-tab" onclick="showTab('isr', this)">🧾 ISR Mensual</button>
+      <button class="calc-tab" onclick="showTab('iva', this)">💱 IVA</button>
+      <button class="calc-tab" onclick="showTab('nomina', this)">👥 Nómina e IMSS</button>
+    </div>
+
+    <!-- PANEL: FINIQUITO -->
+    <div class="calc-panel active" id="panel-finiquito">
+      <div class="calc-layout">
+        <div class="calc-inputs-box">
+          <div class="calc-inputs-title">Calculadora de Finiquito</div>
+          <div class="calc-inputs-sub">Partes proporcionales al terminar relación laboral</div>
+          <div class="field-row">
+            <div class="field-group"><label>Salario diario (MXN)</label><input type="number" id="f_salario" placeholder="Ej: 400" min="0" oninput="calcFiniquito()"/></div>
+            <div class="field-group"><label>Días trabajados en el año</label><input type="number" id="f_dias" placeholder="Ej: 90" min="1" max="365" oninput="calcFiniquito()"/></div>
+          </div>
+          <div class="field-row">
+            <div class="field-group"><label>Días vacaciones anuales</label><input type="number" id="f_vac" placeholder="Ej: 12" min="6" value="12" oninput="calcFiniquito()"/></div>
+            <div class="field-group"><label>% Prima vacacional</label><input type="number" id="f_prima" value="25" min="25" oninput="calcFiniquito()"/></div>
+          </div>
+          <div class="field-group"><label>Salarios pendientes de pago (días)</label><input type="number" id="f_pend" placeholder="Ej: 5" min="0" value="0" oninput="calcFiniquito()"/></div>
+        </div>
+        <div class="calc-result-box">
+          <div class="result-placeholder" id="f_placeholder">
+            <div class="result-placeholder-icon">📄</div>
+            <div class="result-placeholder-text">Ingresa el salario y los<br/>días trabajados para calcular</div>
+          </div>
+          <div class="result-content" id="f_result">
+            <div class="result-label">Desglose del finiquito</div>
+            <div id="f_rows"></div>
+            <div class="result-total">
+              <span class="result-total-label">Total estimado</span>
+              <span class="result-total-amount" id="f_total"></span>
+            </div>
+            <div class="result-note">* No incluye otros conceptos. Consulta con un experto para un cálculo exacto conforme a la LFT.</div>
+            <div class="result-cta">¿Necesitas asesoría? <a href="#contacto">Contáctanos →</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL: LIQUIDACIÓN -->
+    <div class="calc-panel" id="panel-liquidacion">
+      <div class="calc-layout">
+        <div class="calc-inputs-box">
+          <div class="calc-inputs-title">Calculadora de Liquidación</div>
+          <div class="calc-inputs-sub">Despido injustificado — Art. 50 LFT</div>
+          <div class="field-row">
+            <div class="field-group"><label>Salario diario (MXN)</label><input type="number" id="l_salario" placeholder="Ej: 500" min="0" oninput="calcLiquidacion()"/></div>
+            <div class="field-group"><label>Años trabajados</label><input type="number" id="l_anios" placeholder="Ej: 3" min="0" step="0.5" oninput="calcLiquidacion()"/></div>
+          </div>
+          <div class="field-row">
+            <div class="field-group"><label>Días trabajados último año</label><input type="number" id="l_dias" placeholder="Ej: 120" min="0" max="365" value="0" oninput="calcLiquidacion()"/></div>
+            <div class="field-group"><label>Días vacaciones anuales</label><input type="number" id="l_vac" placeholder="Ej: 12" min="6" value="12" oninput="calcLiquidacion()"/></div>
+          </div>
+        </div>
+        <div class="calc-result-box">
+          <div class="result-placeholder" id="l_placeholder">
+            <div class="result-placeholder-icon">⚖️</div>
+            <div class="result-placeholder-text">Ingresa el salario y los<br/>años trabajados para calcular</div>
+          </div>
+          <div class="result-content" id="l_result">
+            <div class="result-label">Desglose de la liquidación</div>
+            <div id="l_rows"></div>
+            <div class="result-total">
+              <span class="result-total-label">Total estimado</span>
+              <span class="result-total-amount" id="l_total"></span>
+            </div>
+            <div class="result-note">* Puede incluir salarios caídos, bonos u otros conceptos. Se recomienda asesoría legal especializada.</div>
+            <div class="result-cta">¿Necesitas asesoría? <a href="#contacto">Contáctanos →</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL: ISR -->
+    <div class="calc-panel" id="panel-isr">
+      <div class="calc-layout">
+        <div class="calc-inputs-box">
+          <div class="calc-inputs-title">ISR Mensual Estimado</div>
+          <div class="calc-inputs-sub">Tablas SAT 2024 — Personas físicas</div>
+          <div class="field-group"><label>Tipo de contribuyente</label>
+            <select id="isr_tipo" onchange="calcISR()">
+              <option value="asalariado">Asalariado (sueldos y salarios)</option>
+              <option value="honorarios">Honorarios / Actividad empresarial</option>
+            </select>
+          </div>
+          <div class="field-group"><label>Ingreso mensual bruto (MXN)</label><input type="number" id="isr_ingreso" placeholder="Ej: 25,000" min="0" oninput="calcISR()"/></div>
+          <div class="field-group"><label>Deducciones autorizadas (opcional)</label><input type="number" id="isr_deduccion" placeholder="Ej: 3,000" min="0" value="0" oninput="calcISR()"/></div>
+        </div>
+        <div class="calc-result-box">
+          <div class="result-placeholder" id="isr_placeholder">
+            <div class="result-placeholder-icon">🧾</div>
+            <div class="result-placeholder-text">Ingresa tu ingreso mensual<br/>para estimar tu ISR</div>
+          </div>
+          <div class="result-content" id="isr_result">
+            <div class="result-label">Desglose del ISR</div>
+            <div id="isr_rows"></div>
+            <div class="result-total">
+              <span class="result-total-label">ISR a retener</span>
+              <span class="result-total-amount" id="isr_total"></span>
+            </div>
+            <div class="result-note">* Estimado con tablas SAT 2024. El ISR real varía según deducciones personales, régimen y otras variables. Consulta a un contador.</div>
+            <div class="result-cta">¿Necesitas asesoría? <a href="#contacto">Contáctanos →</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL: IVA -->
+    <div class="calc-panel" id="panel-iva">
+      <div class="calc-layout">
+        <div class="calc-inputs-box">
+          <div class="calc-inputs-title">Calculadora de IVA</div>
+          <div class="calc-inputs-sub">Tasa general 16% — México</div>
+          <div class="field-group"><label>Operación</label>
+            <select id="iva_op" onchange="calcIVA()">
+              <option value="agregar">Agregar IVA (precio sin IVA → con IVA)</option>
+              <option value="desglosar">Desglosar IVA (precio con IVA → sin IVA)</option>
+            </select>
+          </div>
+          <div class="field-group"><label>Monto (MXN)</label><input type="number" id="iva_monto" placeholder="Ej: 1,000" min="0" oninput="calcIVA()"/></div>
+          <div class="field-group"><label>Tasa de IVA</label>
+            <select id="iva_tasa" onchange="calcIVA()">
+              <option value="16">16% — Tasa general</option>
+              <option value="8">8% — Zona fronteriza</option>
+              <option value="0">0% — Tasa cero / Exento</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-result-box">
+          <div class="result-placeholder" id="iva_placeholder">
+            <div class="result-placeholder-icon">💱</div>
+            <div class="result-placeholder-text">Ingresa el monto para<br/>calcular el IVA al instante</div>
+          </div>
+          <div class="result-content" id="iva_result">
+            <div class="result-label">Desglose del IVA</div>
+            <div id="iva_rows"></div>
+            <div class="result-total">
+              <span class="result-total-label">Total con IVA</span>
+              <span class="result-total-amount" id="iva_total"></span>
+            </div>
+            <div class="result-cta">¿Tienes dudas sobre tu facturación? <a href="#contacto">Contáctanos →</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL: NÓMINA E IMSS -->
+    <div class="calc-panel" id="panel-nomina">
+      <div class="calc-layout">
+        <div class="calc-inputs-box">
+          <div class="calc-inputs-title">Nómina e IMSS</div>
+          <div class="calc-inputs-sub">Cuotas patronales y deducciones al trabajador</div>
+          <div class="field-row">
+            <div class="field-group"><label>Salario mensual bruto (MXN)</label><input type="number" id="n_salario" placeholder="Ej: 12,000" min="0" oninput="calcNomina()"/></div>
+            <div class="field-group"><label>Días del periodo</label>
+              <select id="n_periodo" onchange="calcNomina()">
+                <option value="30">Mensual (30 días)</option>
+                <option value="15">Quincenal (15 días)</option>
+                <option value="7">Semanal (7 días)</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-group"><label>Estado (UMA 2024: $108.57/día)</label>
+            <select id="n_uma" onchange="calcNomina()">
+              <option value="108.57">General — $108.57</option>
+              <option value="108.57">Frontera Norte — $108.57</option>
+            </select>
+          </div>
+          <div class="field-group"><label>¿Trabaja en zona libre de la frontera norte?</label>
+            <select id="n_frontera" onchange="calcNomina()">
+              <option value="no">No</option>
+              <option value="si">Sí</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-result-box">
+          <div class="result-placeholder" id="n_placeholder">
+            <div class="result-placeholder-icon">👥</div>
+            <div class="result-placeholder-text">Ingresa el salario para calcular<br/>cuotas IMSS e INFONAVIT</div>
+          </div>
+          <div class="result-content" id="n_result">
+            <div class="result-label">Desglose de nómina</div>
+            <div id="n_rows"></div>
+            <div class="result-total">
+              <span class="result-total-label">Neto al trabajador</span>
+              <span class="result-total-amount" id="n_total"></span>
+            </div>
+            <div class="result-note">* Estimado. No incluye fondos de ahorro, vales, comisiones ni otros conceptos variables. Las cuotas IMSS pueden variar según salario integrado.</div>
+            <div class="result-cta">¿Necesitas nómina profesional? <a href="#contacto">Contáctanos →</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- CTA -->
   <!-- CTA -->
   <section class="section cta-section" id="contacto">
     <div class="section-label" style="text-align:center">Contáctanos</div>
@@ -970,20 +1462,17 @@
   </footer>
 
   <!-- WhatsApp float -->
-  <a href="https://wa.me/52XXXXXXXXXX" class="whatsapp-float" target="_blank" title="WhatsApp">
+  <a href="https://wa.me/528681217978" class="whatsapp-float" target="_blank" title="WhatsApp">
     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
     </svg>
   </a>
-
   <script>
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
@@ -991,12 +1480,232 @@
     // Nav scroll effect
     window.addEventListener('scroll', () => {
       const nav = document.querySelector('nav');
-      if (window.scrollY > 50) {
-        nav.style.background = 'rgba(8,15,30,0.95)';
-      } else {
-        nav.style.background = 'rgba(13,27,53,0.85)';
-      }
+      nav.style.background = window.scrollY > 50 ? 'rgba(8,15,30,0.95)' : 'rgba(13,27,53,0.85)';
     });
+
+    // ─── TAB SYSTEM ───
+    function showTab(name, btn) {
+      document.querySelectorAll('.calc-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.calc-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('panel-' + name).classList.add('active');
+    }
+
+    // ─── HELPERS ───
+    function fmt(n) {
+      return new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN', minimumFractionDigits: 2 }).format(n);
+    }
+
+    function showResult(rowsId, totalId, resultId, placeholderId, rows, total) {
+      const rowsEl = document.getElementById(rowsId);
+      rowsEl.innerHTML = rows.map(r =>
+        `<div class="result-row ${r.cls||''}"><span>${r.label}</span><span>${fmt(r.val)}</span></div>`
+      ).join('');
+      document.getElementById(totalId).textContent = fmt(total);
+      document.getElementById(resultId).classList.add('show');
+      document.getElementById(placeholderId).style.display = 'none';
+    }
+
+    function hideResult(resultId, placeholderId) {
+      document.getElementById(resultId).classList.remove('show');
+      document.getElementById(placeholderId).style.display = '';
+    }
+
+    // ── FINIQUITO ──
+    function calcFiniquito() {
+      const sal = +document.getElementById('f_salario').value;
+      const dias = +document.getElementById('f_dias').value;
+      const vacAnual = +document.getElementById('f_vac').value || 12;
+      const primaPct = +document.getElementById('f_prima').value || 25;
+      const pend = +document.getElementById('f_pend').value || 0;
+      if (!sal || !dias) { hideResult('f_result','f_placeholder'); return; }
+
+      const propVac = (vacAnual / 365) * dias;
+      const montoVac = propVac * sal;
+      const montoP = montoVac * (primaPct / 100);
+      const propAgui = (15 / 365) * dias * sal;
+      const salPend = pend * sal;
+      const total = montoVac + montoP + propAgui + salPend;
+
+      showResult('f_rows','f_total','f_result','f_placeholder', [
+        { label: `Vacaciones proporcionales (${propVac.toFixed(1)} días)`, val: montoVac },
+        { label: `Prima vacacional (${primaPct}%)`, val: montoP },
+        { label: 'Aguinaldo proporcional', val: propAgui },
+        ...(salPend > 0 ? [{ label: `Salarios pendientes (${pend} días)`, val: salPend }] : []),
+      ], total);
+    }
+
+    // ── LIQUIDACIÓN ──
+    function calcLiquidacion() {
+      const sal = +document.getElementById('l_salario').value;
+      const anios = +document.getElementById('l_anios').value;
+      const dias = +document.getElementById('l_dias').value || 0;
+      const vacAnual = +document.getElementById('l_vac').value || 12;
+      if (!sal || anios === '') { hideResult('l_result','l_placeholder'); return; }
+
+      const tresMeses = 90 * sal;
+      const veinteDias = 20 * anios * sal;
+      const propVac = (vacAnual / 365) * dias * sal;
+      const primaProp = propVac * 0.25;
+      const propAgui = (15 / 365) * dias * sal;
+      const total = tresMeses + veinteDias + propVac + primaProp + propAgui;
+
+      showResult('l_rows','l_total','l_result','l_placeholder', [
+        { label: '3 meses de indemnización (90 días)', val: tresMeses },
+        { label: `20 días por año (${anios} años)`, val: veinteDias },
+        { label: 'Vacaciones proporcionales', val: propVac },
+        { label: 'Prima vacacional proporcional', val: primaProp },
+        { label: 'Aguinaldo proporcional', val: propAgui },
+      ], total);
+    }
+
+    // ── ISR MENSUAL ──
+    function calcISR() {
+      const ingreso = +document.getElementById('isr_ingreso').value;
+      const ded = +document.getElementById('isr_deduccion').value || 0;
+      if (!ingreso) { hideResult('isr_result','isr_placeholder'); return; }
+
+      const tabla = [
+        { li:0,        ls:746.04,     cf:0,          pct:1.92  },
+        { li:746.05,   ls:6332.05,    cf:14.32,      pct:6.40  },
+        { li:6332.06,  ls:11128.01,   cf:371.83,     pct:10.88 },
+        { li:11128.02, ls:12935.82,   cf:893.63,     pct:16.00 },
+        { li:12935.83, ls:15487.71,   cf:1182.88,    pct:17.92 },
+        { li:15487.72, ls:31236.49,   cf:1640.18,    pct:21.36 },
+        { li:31236.50, ls:49233.00,   cf:5004.12,    pct:23.52 },
+        { li:49233.01, ls:93993.90,   cf:9236.89,    pct:30.00 },
+        { li:93993.91, ls:125325.20,  cf:22665.17,   pct:32.00 },
+        { li:125325.21,ls:375975.61,  cf:32691.18,   pct:34.00 },
+        { li:375975.62,ls:Infinity,   cf:117912.32,  pct:35.00 },
+      ];
+
+      const base = Math.max(0, ingreso - ded);
+      let isr = 0, cf = 0, pct = 0;
+      for (const t of tabla) {
+        if (base >= t.li && base <= t.ls) {
+          isr = t.cf + (base - t.li) * (t.pct / 100);
+          cf = t.cf; pct = t.pct; break;
+        }
+      }
+
+      const tipo = document.getElementById('isr_tipo').value;
+      let subsidio = 0;
+      if (tipo === 'asalariado') {
+        if (ingreso <= 3290.62) subsidio = 407.02;
+        else if (ingreso <= 7382.33) subsidio = Math.max(0, 407.02 - (ingreso - 3290.63) * 0.046);
+      }
+      const isrNeto = Math.max(0, isr - subsidio);
+      const neto = ingreso - isrNeto;
+      const tef = ((isrNeto / ingreso) * 100).toFixed(1);
+
+      const rows = [
+        { label: 'Ingreso bruto mensual', val: ingreso },
+        ...(ded > 0 ? [{ label: 'Deducciones autorizadas', val: -ded }] : []),
+        { label: 'Base gravable', val: base },
+        { label: 'Cuota fija', val: cf },
+        { label: `Impuesto marginal (${pct}%)`, val: isr - cf },
+        ...(subsidio > 0 ? [{ label: 'Subsidio al empleo', val: -subsidio }] : []),
+        { label: `Tasa efectiva: ${tef}%`, val: isrNeto, cls: 'negative' },
+        { label: 'Neto estimado', val: neto, cls: 'positive' },
+      ];
+      showResult('isr_rows','isr_total','isr_result','isr_placeholder', rows, isrNeto);
+    }
+
+    // ── IVA ──
+    function calcIVA() {
+      const monto = +document.getElementById('iva_monto').value;
+      const tasa = +document.getElementById('iva_tasa').value / 100;
+      const op = document.getElementById('iva_op').value;
+      if (!monto) { hideResult('iva_result','iva_placeholder'); return; }
+
+      let sinIVA, conIVA, iva;
+      if (op === 'agregar') {
+        sinIVA = monto; iva = monto * tasa; conIVA = monto + iva;
+      } else {
+        conIVA = monto; sinIVA = monto / (1 + tasa); iva = conIVA - sinIVA;
+      }
+      const tasaPct = document.getElementById('iva_tasa').value;
+      showResult('iva_rows','iva_total','iva_result','iva_placeholder', [
+        { label: 'Subtotal (sin IVA)', val: sinIVA },
+        { label: `IVA (${tasaPct}%)`, val: iva },
+      ], conIVA);
+    }
+
+    // ── NÓMINA E IMSS ──
+    function calcNomina() {
+      const salMes = +document.getElementById('n_salario').value;
+      const periodo = +document.getElementById('n_periodo').value;
+      if (!salMes) { hideResult('n_result','n_placeholder'); return; }
+
+      const salDiario = salMes / 30;
+      // IMSS 2024 — cuotas obrero (aproximadas)
+      // Enfermedad y maternidad: 2% sobre diferencia vs 3 UMAs + cuota fija
+      const uma = 108.57;
+      const salBase = salDiario; // SBC simplificado
+
+      // Cuotas obrero IMSS (% del salario)
+      const enfermedadMatPct = 0.004;   // 0.40%
+      const invalidezVidaPct = 0.00625; // 0.625%
+      const cesantiaVejezPct = 0.01125; // 1.125%
+      // Cuota diaria fija EM = 0 (aplica cuando sal > 3 UMAs, simplificado)
+
+      const diasPeriodo = periodo;
+      const salBruto = salDiario * diasPeriodo;
+
+      const imssEM     = salBruto * enfermedadMatPct;
+      const imssIV     = salBruto * invalidezVidaPct;
+      const imssCV     = salBruto * cesantiaVejezPct;
+      const totalIMSS  = imssEM + imssIV + imssCV;
+
+      // ISR estimado sobre el periodo
+      const ingresoMensual = salMes;
+      const tabla = [
+        { li:0,        ls:746.04,     cf:0,          pct:1.92  },
+        { li:746.05,   ls:6332.05,    cf:14.32,      pct:6.40  },
+        { li:6332.06,  ls:11128.01,   cf:371.83,     pct:10.88 },
+        { li:11128.02, ls:12935.82,   cf:893.63,     pct:16.00 },
+        { li:12935.83, ls:15487.71,   cf:1182.88,    pct:17.92 },
+        { li:15487.72, ls:31236.49,   cf:1640.18,    pct:21.36 },
+        { li:31236.50, ls:49233.00,   cf:5004.12,    pct:23.52 },
+        { li:49233.01, ls:93993.90,   cf:9236.89,    pct:30.00 },
+        { li:93993.91, ls:125325.20,  cf:22665.17,   pct:32.00 },
+        { li:125325.21,ls:375975.61,  cf:32691.18,   pct:34.00 },
+        { li:375975.62,ls:Infinity,   cf:117912.32,  pct:35.00 },
+      ];
+      let isrMensual = 0;
+      for (const t of tabla) {
+        if (ingresoMensual >= t.li && ingresoMensual <= t.ls) {
+          isrMensual = t.cf + (ingresoMensual - t.li) * (t.pct / 100); break;
+        }
+      }
+      // Subsidio al empleo
+      let subsidio = 0;
+      if (ingresoMensual <= 3290.62) subsidio = 407.02;
+      else if (ingresoMensual <= 7382.33) subsidio = Math.max(0, 407.02 - (ingresoMensual - 3290.63) * 0.046);
+      const isrNetoMensual = Math.max(0, isrMensual - subsidio);
+      const isrPeriodo = isrNetoMensual * (diasPeriodo / 30);
+
+      const totalDeducciones = totalIMSS + isrPeriodo;
+      const neto = salBruto - totalDeducciones;
+
+      // Costo total para el patrón
+      const imssPatron = salBruto * 0.2084; // aprox 20.84% cuotas patronales
+      const infonavit  = salBruto * 0.05;
+      const costoPatron = salBruto + imssPatron + infonavit;
+
+      showResult('n_rows','n_total','n_result','n_placeholder', [
+        { label: `Salario bruto del periodo (${diasPeriodo} días)`, val: salBruto },
+        { label: '— IMSS Enfermedad y Maternidad (0.40%)', val: -imssEM, cls: 'negative' },
+        { label: '— IMSS Invalidez y Vida (0.625%)', val: -imssIV, cls: 'negative' },
+        { label: '— IMSS Cesantía y Vejez (1.125%)', val: -imssCV, cls: 'negative' },
+        { label: `— ISR estimado del periodo`, val: -isrPeriodo, cls: 'negative' },
+        { label: 'Total deducciones', val: -totalDeducciones },
+        { label: '— — —', val: 0 },
+        { label: 'Costo patronal IMSS (~20.84%)', val: imssPatron },
+        { label: 'Cuota INFONAVIT (5%)', val: infonavit },
+        { label: 'Costo total para el patrón', val: costoPatron },
+      ], neto);
+    }
   </script>
 </body>
 </html>
