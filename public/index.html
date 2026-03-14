@@ -407,6 +407,7 @@
 
     .service-icon {
       width: 56px; height: 56px;
+      color: var(--gold);
       border: 1px solid rgba(201,168,76,0.3);
       border-radius: 4px;
       display: flex;
@@ -999,6 +1000,421 @@
       .field-row { grid-template-columns: 1fr; }
     }
 
+    /* ─── PRICING ─── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .pricing-card {
+      background: var(--navy-mid);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 8px;
+      padding: 2.5rem 2rem;
+      position: relative;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    }
+
+    .pricing-card.featured {
+      border-color: rgba(201,168,76,0.5);
+      background: var(--navy-light);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--navy);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.3rem 1.2rem;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .pricing-plan {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+
+    .pricing-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing-desc {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.8rem;
+      flex: 1;
+    }
+
+    .pricing-price {
+      margin-bottom: 1.8rem;
+    }
+
+    .pricing-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+
+    .pricing-period {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .pricing-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      margin-bottom: 2rem;
+    }
+
+    .pricing-features li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--text-muted);
+    }
+
+    .pricing-features li .check {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.6rem;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .pricing-features li.disabled { opacity: 0.35; }
+    .pricing-features li.disabled .check {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.1);
+      color: var(--text-muted);
+    }
+
+    .btn-pricing {
+      display: block;
+      text-align: center;
+      padding: 0.85rem;
+      border-radius: 4px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.25s;
+      margin-top: auto;
+    }
+
+    .btn-pricing-outline {
+      border: 1px solid rgba(201,168,76,0.35);
+      color: var(--gold-light);
+    }
+
+    .btn-pricing-outline:hover {
+      background: rgba(201,168,76,0.08);
+      border-color: var(--gold);
+    }
+
+    .btn-pricing-solid {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--navy);
+      box-shadow: 0 6px 20px rgba(201,168,76,0.25);
+    }
+
+    .btn-pricing-solid:hover {
+      box-shadow: 0 10px 30px rgba(201,168,76,0.4);
+      transform: translateY(-1px);
+    }
+
+    /* ─── TESTIMONIALS ─── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--navy-mid);
+      border: 1px solid rgba(201,168,76,0.1);
+      border-radius: 8px;
+      padding: 2rem;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+
+    .testimonial-card:hover { border-color: rgba(201,168,76,0.3); }
+
+    .testimonial-quote {
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.3;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 0.5rem;
+    }
+
+    .testimonial-text {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .testimonial-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--navy-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      flex-shrink: 0;
+    }
+
+    .testimonial-name {
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .testimonial-role {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 0.1rem;
+    }
+
+    .testimonial-stars {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      color: var(--gold);
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+    }
+
+    /* ─── FAQ ─── */
+    .faq-list {
+      margin-top: 3.5rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.5rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      cursor: pointer;
+      text-align: left;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--white);
+      transition: color 0.2s;
+    }
+
+    .faq-question:hover { color: var(--gold-light); }
+
+    .faq-icon {
+      width: 28px; height: 28px;
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+
+    .faq-item.open .faq-icon {
+      background: rgba(201,168,76,0.1);
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+    }
+
+    .faq-answer p {
+      font-size: 0.83rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.85;
+      padding-bottom: 1.5rem;
+    }
+
+    /* ─── WHATSAPP BUBBLE ─── */
+    .wa-bubble {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 300;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.75rem;
+    }
+
+    .wa-tooltip {
+      background: var(--navy-mid);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 12px 12px 0 12px;
+      padding: 0.9rem 1.2rem;
+      max-width: 240px;
+      font-size: 0.78rem;
+      line-height: 1.6;
+      color: var(--white);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+      display: none;
+      animation: fadeUp 0.3s ease;
+    }
+
+    .wa-tooltip strong { color: var(--gold-light); display: block; margin-bottom: 0.2rem; }
+
+    .wa-btn {
+      width: 58px; height: 58px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: transform 0.3s;
+      text-decoration: none;
+      position: relative;
+    }
+
+    .wa-btn:hover { transform: scale(1.08); }
+
+    .wa-pulse {
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid rgba(37,211,102,0.4);
+      animation: waPulse 2s ease-out infinite;
+    }
+
+    @keyframes waPulse {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+
+    .wa-bubble:hover .wa-tooltip { display: block; }
+
+    @media (max-width: 900px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+
+
+    /* ─── CALC DISCLAIMER ─── */
+    .calc-disclaimer {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-top: 1.8rem;
+      background: rgba(201,168,76,0.05);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 1.2rem 1.5rem;
+      max-width: 900px;
+    }
+
+    .calc-disclaimer-icon {
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .calc-disclaimer-text {
+      font-size: 0.76rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .calc-disclaimer-text strong {
+      display: block;
+      color: var(--gold-light);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      font-size: 0.78rem;
+    }
+
+    .calc-disclaimer-text em {
+      color: var(--white);
+      font-style: normal;
+      font-weight: 500;
+    }
+
+
   </style>
   </style>
 </head>
@@ -1029,8 +1445,9 @@
     </a>
     <ul class="nav-links">
       <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#nosotros">Nosotros</a></li>
-      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#calculadoras">Calculadoras</a></li>
+      <li><a href="#precios">Precios</a></li>
+      <li><a href="#faq">FAQ</a></li>
       <li><a href="#contacto" class="nav-cta">Consulta gratuita</a></li>
     </ul>
   </nav>
@@ -1054,7 +1471,7 @@
       <div class="hero-actions">
         <a href="#contacto" class="btn-primary">
           <span>Agendar consulta</span>
-          <span>→</span>
+          
         </a>
         <a href="#servicios" class="btn-secondary">Ver servicios</a>
       </div>
@@ -1105,37 +1522,37 @@
 
     <div class="services-grid reveal">
       <div class="service-card">
-        <div class="service-icon">🧾</div>
+        <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
         <h3 class="service-title">Facturación</h3>
         <p class="service-text">Emisión de CFDI, timbrado de facturas, notas de crédito y complementos de pago. Cumplimiento total con los requisitos del SAT.</p>
         <div class="service-check"><span class="checkmark">✓</span> Facturas válidas ante el SAT</div>
       </div>
       <div class="service-card">
-        <div class="service-icon">📋</div>
+        <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M8 8h8M8 16h5"/></svg></div>
         <h3 class="service-title">Declaraciones</h3>
         <p class="service-text">Presentación de declaraciones mensuales, bimestrales y anuales. Personas físicas y morales. Cálculo preciso de ISR e IVA.</p>
         <div class="service-check"><span class="checkmark">✓</span> Sin multas ni recargos</div>
       </div>
       <div class="service-card">
-        <div class="service-icon">🏛️</div>
+        <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
         <h3 class="service-title">Trámites SAT</h3>
         <p class="service-text">Alta de RFC, cambios de régimen, obtención de firma electrónica (e.firma), aclaraciones, buzón tributario y más.</p>
         <div class="service-check"><span class="checkmark">✓</span> Gestión completa</div>
       </div>
       <div class="service-card">
-        <div class="service-icon">📊</div>
+        <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
         <h3 class="service-title">Contabilidad</h3>
         <p class="service-text">Registro contable mensual, conciliación bancaria, estados financieros y reportes para la toma de decisiones de tu empresa.</p>
         <div class="service-check"><span class="checkmark">✓</span> Información en tiempo real</div>
       </div>
       <div class="service-card">
-        <div class="service-icon">💼</div>
+        <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <h3 class="service-title">Nómina</h3>
         <p class="service-text">Cálculo y timbrado de recibos de nómina, altas y bajas ante el IMSS, cálculo de finiquitos e indemnizaciones.</p>
         <div class="service-check"><span class="checkmark">✓</span> IMSS e INFONAVIT</div>
       </div>
       <div class="service-card">
-        <div class="service-icon">🔍</div>
+        <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
         <h3 class="service-title">Asesoría Fiscal</h3>
         <p class="service-text">Planeación fiscal para optimizar tu carga impositiva. Atención a auditorías, revisiones electrónicas y cartas invitación del SAT.</p>
         <div class="service-check"><span class="checkmark">✓</span> Ahorra impuestos legalmente</div>
@@ -1151,28 +1568,28 @@
     <div class="why-grid">
       <ul class="why-list reveal">
         <li class="why-item">
-          <div class="why-dot">⚡</div>
+          <div class="why-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
           <div class="why-text">
             <strong>Respuesta rápida</strong>
             <p>Atendemos tus dudas en menos de 24 horas. Siempre accesibles por WhatsApp, llamada o correo electrónico.</p>
           </div>
         </li>
         <li class="why-item">
-          <div class="why-dot">🛡️</div>
+          <div class="why-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
           <div class="why-text">
             <strong>Cumplimiento garantizado</strong>
             <p>Nos mantenemos actualizados en las disposiciones fiscales del SAT para asegurar que estés siempre en regla.</p>
           </div>
         </li>
         <li class="why-item">
-          <div class="why-dot">🤝</div>
+          <div class="why-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
           <div class="why-text">
             <strong>Trato personalizado</strong>
             <p>Cada cliente es diferente. Diseñamos una estrategia contable y fiscal adaptada a tu actividad y necesidades.</p>
           </div>
         </li>
         <li class="why-item">
-          <div class="why-dot">💰</div>
+          <div class="why-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
           <div class="why-text">
             <strong>Tarifas competitivas</strong>
             <p>Precios claros y honestos, sin costos ocultos. Contabilidad profesional al alcance de todos los negocios.</p>
@@ -1226,22 +1643,31 @@
   <section class="section" id="calculadoras" style="background: rgba(10,20,42,0.6);">
     <div class="section-label">Herramientas gratuitas</div>
     <h2 class="section-title reveal">Calculadoras fiscales<br/>y laborales</h2>
-    <p class="section-desc reveal">Obtén estimados rápidos sin salir de la página. Para asesoría personalizada, contáctanos.</p>
+    <p class="section-desc reveal">Obtén estimados orientativos sin salir de la página. Para asesoría personalizada, contáctanos.</p>
+
+    <div class="calc-disclaimer reveal">
+      <div class="calc-disclaimer-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+      <div class="calc-disclaimer-text">
+        <strong>Aviso importante — Solo fines informativos</strong>
+        Los resultados de estas calculadoras son <em>estimados aproximados</em> con fines orientativos únicamente. No constituyen asesoría fiscal, contable, legal ni laboral, y no deben utilizarse como base para tomar decisiones legales, fiscales o financieras. Los cálculos pueden variar según el régimen fiscal, deducciones personales, convenios colectivos, reformas legislativas u otras variables particulares de cada caso. Para obtener información precisa y personalizada, consulta a un contador o asesor certificado.
+      </div>
+    </div>
 
     <!-- TABS -->
     <div class="calc-tabs reveal">
-      <button class="calc-tab active" onclick="showTab('finiquito', this)">📄 Finiquito</button>
-      <button class="calc-tab" onclick="showTab('liquidacion', this)">⚖️ Liquidación</button>
-      <button class="calc-tab" onclick="showTab('isr', this)">🧾 ISR Mensual</button>
-      <button class="calc-tab" onclick="showTab('iva', this)">💱 IVA</button>
-      <button class="calc-tab" onclick="showTab('nomina', this)">👥 Nómina e IMSS</button>
+      <button class="calc-tab active" onclick="showTab('finiquito', this)">Finiquito</button>
+      <button class="calc-tab" onclick="showTab('liquidacion', this)">Liquidación</button>
+      <button class="calc-tab" onclick="showTab('aguinaldo', this)">Aguinaldo</button>
+      <button class="calc-tab" onclick="showTab('isr', this)">ISR Mensual</button>
+      <button class="calc-tab" onclick="showTab('iva', this)">IVA</button>
+      <button class="calc-tab" onclick="showTab('nomina', this)">Nómina e IMSS</button>
     </div>
 
     <!-- PANEL: FINIQUITO -->
     <div class="calc-panel active" id="panel-finiquito">
       <div class="calc-layout">
         <div class="calc-inputs-box">
-          <div class="calc-inputs-title">Calculadora de Finiquito</div>
+          <div class="calc-inputs-title">Calculadora deFiniquito</div>
           <div class="calc-inputs-sub">Partes proporcionales al terminar relación laboral</div>
           <div class="field-row">
             <div class="field-group"><label>Salario diario (MXN)</label><input type="number" id="f_salario" placeholder="Ej: 400" min="0" oninput="calcFiniquito()"/></div>
@@ -1255,7 +1681,7 @@
         </div>
         <div class="calc-result-box">
           <div class="result-placeholder" id="f_placeholder">
-            <div class="result-placeholder-icon">📄</div>
+            <div class="result-placeholder-icon"></div>
             <div class="result-placeholder-text">Ingresa el salario y los<br/>días trabajados para calcular</div>
           </div>
           <div class="result-content" id="f_result">
@@ -1266,7 +1692,7 @@
               <span class="result-total-amount" id="f_total"></span>
             </div>
             <div class="result-note">* No incluye otros conceptos. Consulta con un experto para un cálculo exacto conforme a la LFT.</div>
-            <div class="result-cta">¿Necesitas asesoría? <a href="#contacto">Contáctanos →</a></div>
+            <div class="result-cta">¿Necesitas asesoría? <a href="#contacto">Contáctanos &rsaquo;</a></div>
           </div>
         </div>
       </div>
@@ -1276,7 +1702,7 @@
     <div class="calc-panel" id="panel-liquidacion">
       <div class="calc-layout">
         <div class="calc-inputs-box">
-          <div class="calc-inputs-title">Calculadora de Liquidación</div>
+          <div class="calc-inputs-title">Calculadora deLiquidación</div>
           <div class="calc-inputs-sub">Despido injustificado — Art. 50 LFT</div>
           <div class="field-row">
             <div class="field-group"><label>Salario diario (MXN)</label><input type="number" id="l_salario" placeholder="Ej: 500" min="0" oninput="calcLiquidacion()"/></div>
@@ -1289,7 +1715,7 @@
         </div>
         <div class="calc-result-box">
           <div class="result-placeholder" id="l_placeholder">
-            <div class="result-placeholder-icon">⚖️</div>
+            <div class="result-placeholder-icon"></div>
             <div class="result-placeholder-text">Ingresa el salario y los<br/>años trabajados para calcular</div>
           </div>
           <div class="result-content" id="l_result">
@@ -1300,7 +1726,45 @@
               <span class="result-total-amount" id="l_total"></span>
             </div>
             <div class="result-note">* Puede incluir salarios caídos, bonos u otros conceptos. Se recomienda asesoría legal especializada.</div>
-            <div class="result-cta">¿Necesitas asesoría? <a href="#contacto">Contáctanos →</a></div>
+            <div class="result-cta">¿Necesitas asesoría? <a href="#contacto">Contáctanos &rsaquo;</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- PANEL: AGUINALDO -->
+    <div class="calc-panel" id="panel-aguinaldo">
+      <div class="calc-layout">
+        <div class="calc-inputs-box">
+          <div class="calc-inputs-title">Calculadora de Aguinaldo</div>
+          <div class="calc-inputs-sub">Art. 87 LFT — Mínimo 15 días de salario</div>
+          <div class="field-row">
+            <div class="field-group"><label>Salario mensual (MXN)</label><input type="number" id="ag_salario" placeholder="Ej: 12,000" min="0" oninput="calcAguinaldo()"/></div>
+            <div class="field-group"><label>Días de aguinaldo</label><input type="number" id="ag_dias" placeholder="Ej: 15" min="15" value="15" oninput="calcAguinaldo()"/></div>
+          </div>
+          <div class="field-row">
+            <div class="field-group"><label>Meses trabajados en el año</label><input type="number" id="ag_meses" placeholder="Ej: 12" min="1" max="12" value="12" oninput="calcAguinaldo()"/></div>
+            <div class="field-group"><label>Días trabajados en el último mes</label><input type="number" id="ag_diasmes" placeholder="Ej: 30" min="0" max="31" value="30" oninput="calcAguinaldo()"/></div>
+          </div>
+          <p style="font-size:0.7rem;color:var(--text-muted);margin-top:0.8rem;line-height:1.6;">El aguinaldo se paga antes del 20 de diciembre. Si no trabajaste el año completo, se calcula de forma proporcional.</p>
+        </div>
+        <div class="calc-result-box">
+          <div class="result-placeholder" id="ag_placeholder">
+            <div class="result-placeholder-icon" style="font-size:2rem;opacity:0.2;">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8V5"/><path d="M8 8V5a4 4 0 0 1 8 0v3"/><line x1="12" y1="12" x2="12" y2="16"/></svg>
+            </div>
+            <div class="result-placeholder-text">Ingresa tu salario mensual<br/>para calcular tu aguinaldo</div>
+          </div>
+          <div class="result-content" id="ag_result">
+            <div class="result-label">Desglose del aguinaldo</div>
+            <div id="ag_rows"></div>
+            <div class="result-total">
+              <span class="result-total-label">Aguinaldo estimado</span>
+              <span class="result-total-amount" id="ag_total"></span>
+            </div>
+            <div class="result-note">* Monto bruto antes de impuestos. El aguinaldo puede estar sujeto a retención de ISR si supera la exención anual. Consulta a un contador para el cálculo neto exacto.</div>
+            <div class="result-cta">¿Necesitas asesoría? <a href="#contacto">Contáctanos</a></div>
           </div>
         </div>
       </div>
@@ -1323,7 +1787,7 @@
         </div>
         <div class="calc-result-box">
           <div class="result-placeholder" id="isr_placeholder">
-            <div class="result-placeholder-icon">🧾</div>
+            <div class="result-placeholder-icon"></div>
             <div class="result-placeholder-text">Ingresa tu ingreso mensual<br/>para estimar tu ISR</div>
           </div>
           <div class="result-content" id="isr_result">
@@ -1334,7 +1798,7 @@
               <span class="result-total-amount" id="isr_total"></span>
             </div>
             <div class="result-note">* Estimado con tablas SAT 2024. El ISR real varía según deducciones personales, régimen y otras variables. Consulta a un contador.</div>
-            <div class="result-cta">¿Necesitas asesoría? <a href="#contacto">Contáctanos →</a></div>
+            <div class="result-cta">¿Necesitas asesoría? <a href="#contacto">Contáctanos &rsaquo;</a></div>
           </div>
         </div>
       </div>
@@ -1344,16 +1808,16 @@
     <div class="calc-panel" id="panel-iva">
       <div class="calc-layout">
         <div class="calc-inputs-box">
-          <div class="calc-inputs-title">Calculadora de IVA</div>
+          <div class="calc-inputs-title">Calculadora deIVA</div>
           <div class="calc-inputs-sub">Tasa general 16% — México</div>
           <div class="field-group"><label>Operación</label>
             <select id="iva_op" onchange="calcIVA()">
-              <option value="agregar">Agregar IVA (precio sin IVA → con IVA)</option>
-              <option value="desglosar">Desglosar IVA (precio con IVA → sin IVA)</option>
+              <option value="agregar">Agregar IVA (precio sin IVA &rsaquo; con IVA)</option>
+              <option value="desglosar">Desglosar IVA (precio con IVA &rsaquo; sin IVA)</option>
             </select>
           </div>
           <div class="field-group"><label>Monto (MXN)</label><input type="number" id="iva_monto" placeholder="Ej: 1,000" min="0" oninput="calcIVA()"/></div>
-          <div class="field-group"><label>Tasa de IVA</label>
+          <div class="field-group"><label>Tasa deIVA</label>
             <select id="iva_tasa" onchange="calcIVA()">
               <option value="16">16% — Tasa general</option>
               <option value="8">8% — Zona fronteriza</option>
@@ -1363,17 +1827,17 @@
         </div>
         <div class="calc-result-box">
           <div class="result-placeholder" id="iva_placeholder">
-            <div class="result-placeholder-icon">💱</div>
+            <div class="result-placeholder-icon"></div>
             <div class="result-placeholder-text">Ingresa el monto para<br/>calcular el IVA al instante</div>
           </div>
           <div class="result-content" id="iva_result">
-            <div class="result-label">Desglose del IVA</div>
+            <div class="result-label">Desglose delIVA</div>
             <div id="iva_rows"></div>
             <div class="result-total">
-              <span class="result-total-label">Total con IVA</span>
+              <span class="result-total-label">Total conIVA</span>
               <span class="result-total-amount" id="iva_total"></span>
             </div>
-            <div class="result-cta">¿Tienes dudas sobre tu facturación? <a href="#contacto">Contáctanos →</a></div>
+            <div class="result-cta">¿Tienes dudas sobre tu facturación? <a href="#contacto">Contáctanos &rsaquo;</a></div>
           </div>
         </div>
       </div>
@@ -1410,7 +1874,7 @@
         </div>
         <div class="calc-result-box">
           <div class="result-placeholder" id="n_placeholder">
-            <div class="result-placeholder-icon">👥</div>
+            <div class="result-placeholder-icon"></div>
             <div class="result-placeholder-text">Ingresa el salario para calcular<br/>cuotas IMSS e INFONAVIT</div>
           </div>
           <div class="result-content" id="n_result">
@@ -1421,7 +1885,7 @@
               <span class="result-total-amount" id="n_total"></span>
             </div>
             <div class="result-note">* Estimado. No incluye fondos de ahorro, vales, comisiones ni otros conceptos variables. Las cuotas IMSS pueden variar según salario integrado.</div>
-            <div class="result-cta">¿Necesitas nómina profesional? <a href="#contacto">Contáctanos →</a></div>
+            <div class="result-cta">¿Necesitas nómina profesional? <a href="#contacto">Contáctanos &rsaquo;</a></div>
           </div>
         </div>
       </div>
@@ -1429,7 +1893,138 @@
 
   </section>
 
-  <!-- CTA -->
+
+  <!-- PRECIOS -->
+  <section class="section" id="precios" style="background: rgba(10,20,42,0.6);">
+    <div class="section-label">Planes y tarifas</div>
+    <h2 class="section-title reveal">Inversión clara,<br/>sin sorpresas</h2>
+    <p class="section-desc reveal">Elige el plan que mejor se adapte a tu actividad. Todos incluyen atención personalizada.</p>
+
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <div class="pricing-plan">Básico</div>
+        <div class="pricing-name">Persona Física</div>
+        <p class="pricing-desc">Ideal para asalariados, honorarios o pequeños negocios que necesitan cumplir con el SAT.</p>
+        <div class="pricing-price">
+          <div class="pricing-amount">Desde $500</div>
+          <div class="pricing-period">MXN / mes</div>
+        </div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> Declaración mensual ISR eIVA</li>
+          <li><span class="check">✓</span> Facturación CFDI</li>
+          <li><span class="check">✓</span> Atención por WhatsApp</li>
+          <li><span class="check">✓</span> Trámites SAT básicos</li>
+          <li class="disabled"><span class="check">–</span> Nómina incluida</li>
+          <li class="disabled"><span class="check">–</span> Estados financieros</li>
+        </ul>
+        <a href="#contacto" class="btn-pricing btn-pricing-outline">Solicitar información</a>
+      </div>
+
+      <div class="pricing-card featured reveal">
+        <div class="pricing-badge">Más popular</div>
+        <div class="pricing-plan">Profesional</div>
+        <div class="pricing-name">Persona Moral</div>
+        <p class="pricing-desc">Para empresas y negocios que necesitan contabilidad completa, nómina y asesoría continua.</p>
+        <div class="pricing-price">
+          <div class="pricing-amount">Desde $1,500</div>
+          <div class="pricing-period">MXN / mes</div>
+        </div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> Contabilidad mensual completa</li>
+          <li><span class="check">✓</span> Declaraciones ISR, IVA, IMSS</li>
+          <li><span class="check">✓</span> Nómina hasta 5 empleados</li>
+          <li><span class="check">✓</span> Estados financieros mensuales</li>
+          <li><span class="check">✓</span> Asesoría fiscal continua</li>
+          <li><span class="check">✓</span> Atención prioritaria</li>
+        </ul>
+        <a href="#contacto" class="btn-pricing btn-pricing-solid">Solicitar información</a>
+      </div>
+
+      <div class="pricing-card reveal">
+        <div class="pricing-plan">Enterprise</div>
+        <div class="pricing-name">A la medida</div>
+        <p class="pricing-desc">Para empresas con necesidades específicas, múltiples empleados o estructuras corporativas complejas.</p>
+        <div class="pricing-price">
+          <div class="pricing-amount">Cotización</div>
+          <div class="pricing-period">personalizada</div>
+        </div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> Todo lo del plan Profesional</li>
+          <li><span class="check">✓</span> Nómina ilimitada</li>
+          <li><span class="check">✓</span> Planeación fiscal anual</li>
+          <li><span class="check">✓</span> Auditorías y revisiones SAT</li>
+          <li><span class="check">✓</span> Atención 24/7</li>
+          <li><span class="check">✓</span> Gerente de cuenta dedicado</li>
+        </ul>
+        <a href="#contacto" class="btn-pricing btn-pricing-outline">Solicitar cotización</a>
+      </div>
+    </div>
+    <p class="reveal" style="text-align:center;margin-top:2rem;font-size:0.75rem;color:var(--text-muted);">* Los precios son orientativos. El costo final depende de la actividad, volumen de operaciones y servicios requeridos.</p>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="section-label">Preguntas frecuentes</div>
+    <h2 class="section-title reveal">Resolvemos tus dudas</h2>
+
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          <span>¿Qué es el RFC y cómo puedo darlo de alta?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <p>El RFC (Registro Federal de Contribuyentes) es tu identificación fiscal ante el SAT. Para darlo de alta necesitas acudir a una oficina del SAT o hacerlo en línea con tu CURP. En Punto Contable te ayudamos a gestionar todo el proceso sin complicaciones.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          <span>¿Cuándo debo presentar mis declaraciones?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <p>Las personas físicas presentan declaraciones mensuales a más tardar el día 17 del mes siguiente, y la declaración anual entre enero y abril. Las personas morales tienen sus propios calendarios. Nosotros llevamos el control de todas tus fechas para que nunca pagues multas.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          <span>¿Qué diferencia hay entre finiquito y liquidación?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <p>El <strong style="color:var(--gold-light)">finiquito</strong> incluye los pagos proporcionales que se te adeudan al terminar la relación laboral (vacaciones, aguinaldo, salarios pendientes), sin importar la causa. La <strong style="color:var(--gold-light)">liquidación</strong> aplica solo en despido injustificado y suma 3 meses de salario más 20 días por año trabajado.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          <span>¿Puedo deducir gastos personales de mis impuestos?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <p>Sí. Las personas físicas pueden deducir ciertos gastos personales en su declaración anual: honorarios médicos, dentales y hospitalarios, colegiaturas, intereses de crédito hipotecario, donativos y aportaciones a planes de retiro, entre otros. Te asesoramos para aprovechar al máximo tus deducciones legalmente.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          <span>¿Qué pasa si no he presentado declaraciones en años?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <p>Es posible regularizarse ante el SAT aunque tengas años sin declarar. En muchos casos se puede negociar la reducción de multas y recargos. Lo importante es actuar cuanto antes para evitar que la deuda crezca. Contáctanos y analizamos tu situación sin costo.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          <span>¿Trabajan con clientes de todo México o solo Tamaulipas?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <p>Atendemos clientes de todo el país de forma 100% digital. La mayoría de los trámites fiscales y contables se pueden realizar en línea, por lo que no importa en qué estado estés. Nos comunicamos por WhatsApp, videollamada o correo electrónico.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="section cta-section" id="contacto">
     <div class="section-label" style="text-align:center">Contáctanos</div>
@@ -1437,11 +2032,9 @@
     <p class="section-desc reveal">Primera consulta sin costo. Cuéntanos tu situación y te orientamos sin compromisos.</p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;" class="reveal">
       <a href="https://wa.me/528681217978?text=Hola%2C%20me%20interesa%20una%20consulta%20en%20Punto%20Contable" class="btn-primary" target="_blank">
-        <span>💬</span>
         <span>Escribir por WhatsApp</span>
       </a>
       <a href="mailto:puntocontable.asesoria@gmail.com" class="btn-secondary">
-        <span>📧</span>
         <span>Enviar correo</span>
       </a>
     </div>
@@ -1458,16 +2051,32 @@
       <li><a href="#nosotros">Nosotros</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
-    <div class="footer-copy">© 2026 Punto Contable. Todos los derechos reservados.</div>
+    <div style="display:flex;align-items:center;gap:1rem;flex-direction:column;">
+      <div style="display:flex;gap:0.75rem;">
+        <a href="#" title="Facebook" style="width:34px;height:34px;border:1px solid rgba(201,168,76,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-muted);text-decoration:none;font-size:0.85rem;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.2)';this.style.color='var(--text-muted)'">f</a>
+        <a href="#" title="Instagram" style="width:34px;height:34px;border:1px solid rgba(201,168,76,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-muted);text-decoration:none;font-size:0.8rem;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.2)';this.style.color='var(--text-muted)'">ig</a>
+        <a href="#" title="LinkedIn" style="width:34px;height:34px;border:1px solid rgba(201,168,76,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-muted);text-decoration:none;font-size:0.7rem;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.2)';this.style.color='var(--text-muted)'">in</a>
+        <a href="#" title="TikTok" style="width:34px;height:34px;border:1px solid rgba(201,168,76,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-muted);text-decoration:none;font-size:0.7rem;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.2)';this.style.color='var(--text-muted)'">tt</a>
+      </div>
+      <div class="footer-copy">© 2026 Punto Contable. Todos los derechos reservados.</div>
+    </div>
   </footer>
 
-  <!-- WhatsApp float -->
-  <a href="https://wa.me/528681217978" class="whatsapp-float" target="_blank" title="WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-    </svg>
-  </a>
-  <script>
+  <!-- WhatsApp bubble -->
+  <div class="wa-bubble">
+    <div class="wa-tooltip">
+      <strong>¡Hola! Somos Punto Contable</strong>
+      ¿Tienes dudas fiscales? Escríbenos, la primera consulta es sin costo.
+    </div>
+    <a href="https://wa.me/528681217978?text=Hola%2C%20me%20interesa%20una%20consulta%20en%20Punto%20Contable%2C%20%C2%BFpueden%20ayudarme%3F" class="wa-btn" target="_blank" title="Escríbenos por WhatsApp">
+      <div class="wa-pulse"></div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+      </svg>
+    </a>
+  </div>
+
+    <script>
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
@@ -1513,21 +2122,23 @@
 
     // ── FINIQUITO ──
     function calcFiniquito() {
-      const sal = +document.getElementById('f_salario').value;
+      const salMes = +document.getElementById('f_salario').value;
       const dias = +document.getElementById('f_dias').value;
       const vacAnual = +document.getElementById('f_vac').value || 12;
       const primaPct = +document.getElementById('f_prima').value || 25;
       const pend = +document.getElementById('f_pend').value || 0;
-      if (!sal || !dias) { hideResult('f_result','f_placeholder'); return; }
+      if (!salMes || !dias) { hideResult('f_result','f_placeholder'); return; }
 
+      const salDiario = salMes / 30;
       const propVac = (vacAnual / 365) * dias;
-      const montoVac = propVac * sal;
+      const montoVac = propVac * salDiario;
       const montoP = montoVac * (primaPct / 100);
-      const propAgui = (15 / 365) * dias * sal;
-      const salPend = pend * sal;
+      const propAgui = (15 / 365) * dias * salDiario;
+      const salPend = pend * salDiario;
       const total = montoVac + montoP + propAgui + salPend;
 
       showResult('f_rows','f_total','f_result','f_placeholder', [
+        { label: `Salario diario equivalente`, val: salDiario },
         { label: `Vacaciones proporcionales (${propVac.toFixed(1)} días)`, val: montoVac },
         { label: `Prima vacacional (${primaPct}%)`, val: montoP },
         { label: 'Aguinaldo proporcional', val: propAgui },
@@ -1537,12 +2148,13 @@
 
     // ── LIQUIDACIÓN ──
     function calcLiquidacion() {
-      const sal = +document.getElementById('l_salario').value;
+      const salMes = +document.getElementById('l_salario').value;
       const anios = +document.getElementById('l_anios').value;
       const dias = +document.getElementById('l_dias').value || 0;
       const vacAnual = +document.getElementById('l_vac').value || 12;
-      if (!sal || anios === '') { hideResult('l_result','l_placeholder'); return; }
+      if (!salMes || anios === '') { hideResult('l_result','l_placeholder'); return; }
 
+      const sal = salMes / 30; // salario diario
       const tresMeses = 90 * sal;
       const veinteDias = 20 * anios * sal;
       const propVac = (vacAnual / 365) * dias * sal;
@@ -1551,6 +2163,7 @@
       const total = tresMeses + veinteDias + propVac + primaProp + propAgui;
 
       showResult('l_rows','l_total','l_result','l_placeholder', [
+        { label: 'Salario diario equivalente', val: sal },
         { label: '3 meses de indemnización (90 días)', val: tresMeses },
         { label: `20 días por año (${anios} años)`, val: veinteDias },
         { label: 'Vacaciones proporcionales', val: propVac },
@@ -1559,6 +2172,58 @@
       ], total);
     }
 
+
+    // ── AGUINALDO ──
+    function calcAguinaldo() {
+      const salMes = +document.getElementById('ag_salario').value;
+      const diasAg = +document.getElementById('ag_dias').value || 15;
+      const meses = +document.getElementById('ag_meses').value || 12;
+      const diasUltimoMes = +document.getElementById('ag_diasmes').value || 30;
+      if (!salMes) { hideResult('ag_result','ag_placeholder'); return; }
+
+      const salDiario = salMes / 30;
+      // Días trabajados totales en el año (proporcional)
+      const diasTrabajados = (meses < 12)
+        ? (meses - 1) * 30 + diasUltimoMes
+        : 365;
+      const aguinaldoProp = (diasAg / 365) * diasTrabajados * salDiario;
+
+      // Exención ISR aguinaldo 2024: 30 UMAs ($108.57) = $3,257.10
+      const exencion = 30 * 108.57;
+      const gravado = Math.max(0, aguinaldoProp - exencion);
+
+      // ISR sobre la parte gravada (tasa marginal estimada simplificada)
+      let isrAg = 0;
+      if (gravado > 0) {
+        const tabla = [
+          { li:0,        ls:746.04,     cf:0,          pct:1.92  },
+          { li:746.05,   ls:6332.05,    cf:14.32,      pct:6.40  },
+          { li:6332.06,  ls:11128.01,   cf:371.83,     pct:10.88 },
+          { li:11128.02, ls:12935.82,   cf:893.63,     pct:16.00 },
+          { li:12935.83, ls:15487.71,   cf:1182.88,    pct:17.92 },
+          { li:15487.72, ls:31236.49,   cf:1640.18,    pct:21.36 },
+          { li:31236.50, ls:49233.00,   cf:5004.12,    pct:23.52 },
+          { li:49233.01, ls:93993.90,   cf:9236.89,    pct:30.00 },
+          { li:93993.91, ls:Infinity,   cf:22665.17,   pct:32.00 },
+        ];
+        for (const t of tabla) {
+          if (salMes >= t.li && salMes <= t.ls) {
+            isrAg = gravado * (t.pct / 100); break;
+          }
+        }
+      }
+
+      const neto = aguinaldoProp - isrAg;
+
+      showResult('ag_rows','ag_total','ag_result','ag_placeholder', [
+        { label: 'Salario diario equivalente', val: salDiario },
+        { label: `Días de aguinaldo (${diasAg} días)`, val: diasAg * salDiario },
+        ...(diasTrabajados < 365 ? [{ label: `Proporcional (${diasTrabajados} días trabajados)`, val: aguinaldoProp }] : []),
+        { label: `Exención ISR (30 UMAs)`, val: -Math.min(exencion, aguinaldoProp) },
+        ...(gravado > 0 ? [{ label: 'Parte gravada', val: gravado }, { label: 'ISR estimado sobre aguinaldo', val: -isrAg, cls: 'negative' }] : []),
+        { label: 'Aguinaldo neto estimado', val: neto, cls: 'positive' },
+      ], aguinaldoProp);
+    }
     // ── ISR MENSUAL ──
     function calcISR() {
       const ingreso = +document.getElementById('isr_ingreso').value;
